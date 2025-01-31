@@ -1,0 +1,25 @@
+@use "style";
+#head {
+    text-align: center;
+}
+code {
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+}
+p {
+    font-size: 1em;
+}
+pre {
+    border-radius: var(--radius);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+}
+.giscus {
+    margin: 0 10%;
+    width: 80%;
+}

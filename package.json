@@ -1,0 +1,51 @@
+{
+    "name": "laco-blog2",
+    "version": "1.0.0",
+    "description": "laco-blog 2.0",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack",
+        "start": "webpack-dev-server --open --progress"
+    },
+    "author": "jackzhang2013",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@eslint/js": "^9.16.0",
+        "babel-loader": "^9.2.1",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^12.0.2",
+        "css-loader": "^7.1.2",
+        "css-minimizer-webpack-plugin": "^7.0.0",
+        "eslint": "^9.16.0",
+        "file-loader": "^6.2.0",
+        "glob": "^11.0.0",
+        "globals": "^15.13.0",
+        "html-webpack-plugin": "^5.6.3",
+        "sass": "^1.83.0",
+        "sass-loader": "^16.0.4",
+        "style-loader": "^4.0.0",
+        "webpack": "^5.96.1",
+        "webpack-bundle-analyzer": "^4.10.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.2.0"
+    },
+    "dependencies": {
+        "@vscode/markdown-it-katex": "^1.1.1",
+        "axios": "^1.7.7",
+        "babel-plugin-prismjs": "^2.1.0",
+        "bootstrap-icons": "^1.11.3",
+        "cash-dom": "^8.1.5",
+        "compression": "^1.7.5",
+        "express": "^4.21.2",
+        "github-markdown-css": "^5.8.1",
+        "highlight.js": "^11.10.0",
+        "highlightjs-copy": "^1.0.6",
+        "highlightjs-line-numbers.js": "^2.9.0",
+        "katex": "^0.16.11",
+        "markdown-it": "^14.1.0",
+        "markdown-it-anchor": "^9.2.0",
+        "prismjs": "^1.29.0"
+    }
+}
