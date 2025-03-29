@@ -1,0 +1,143 @@
+#top {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 4rem;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0px 5px 5px var(--shadow-color);
+    background-color: var(--element-bg-color);
+    border: {
+        style: none none solid none;
+        width: var(--border-size);
+        color: var(--border-color);
+    }
+    #left {
+        float: left;
+        position: relative;
+        height: 100%;
+        #logo {
+            position: relative;
+            height: 100%;
+            a {
+                text-decoration: none;
+                color: var(--logo-color);
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    #center-left {
+        position: absolute;
+        float: left;
+        left: 20%;
+        #link {
+            a {
+                text-decoration: none;
+                margin-right: 2em;
+                color: var(--link-color);
+                font-size: 1.5rem;
+            }
+            margin-top: 0;
+            margin-right: 0;
+            height: 100%;
+        }
+    }
+
+    #center-right {
+        position: absolute;
+        float: right;
+        right: 20%;
+        #search {
+            border: var(--border-color) solid var(--border-size);
+            max-width: 15em;
+            float: left;
+            position: relative;
+            padding: 5px;
+            height: 100%;
+            display: flex;
+            background-color: var(--content-bg-color);
+            i {
+                flex-basis: 1.3em;
+                position: relative;
+                color: var(--text-color);
+                margin-left: 5px;
+                margin-right: 5px;
+                font-size: 1.3em;
+            }
+            input {
+                min-width: 0;
+                flex: 1;
+                width: auto;
+                position: relative;
+                font-size: 20px;
+                margin: 0;
+                padding: 0;
+                background-color: transparent;
+                border: 0;
+                outline: none;
+                color: var(--text-color);
+            }
+            border-radius: var(--radius);
+        }
+        #res-list {
+            border: var(--border-color) solid 2px;
+            max-width: 15em;
+            margin-top: 3em;
+            background-color: var(--content-bg-color);
+            a:not(:last-child) .res {
+                border-bottom: 2px solid var(--border-color);
+            }
+            .res {
+                padding: 0.5em 2em;
+                b {
+                    display: inline-block;
+                    max-width: 100%;
+                    font-size: 1.2rem;
+                    color: var(--text-color);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+                p {
+                    margin: 0;
+                    display: inline-block;
+                    max-width: 100%;
+                    font-size: 0.9rem;
+                    color: var(--disabled-color);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+            }
+            border-radius: var(--radius);
+        }
+    }
+
+    #right {
+        float: right;
+
+        #github {
+            float: left;
+            position: relative;
+            height: 30px;
+            i {
+                color: var(--text-color);
+                margin-top: 0;
+                margin-right: 0;
+                font-size: 2em;
+            }
+        }
+
+        #moon-sun {
+            cursor: pointer;
+            float: left;
+            position: relative;
+            color: var(--text-color);
+            margin-right: 1rem;
+            font-size: 2em;
+            padding: 0;
+        }
+    }
+}

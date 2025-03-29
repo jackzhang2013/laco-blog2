@@ -12,10 +12,12 @@
     </head>
     <body class="light">
         <div id="top">
-            <div id="center">
+            <div id="left">
                 <div id="logo">
                     <a href="index.html" id="logo-text" target="_blank"></a>
                 </div>
+            </div>
+            <div id="center-left">
                 <div id="link">
                     <a href="index.html" id="link1" target="_blank">首页</a>
                     <a href="index.html" id="link2" target="_blank">文章</a>
@@ -32,8 +34,17 @@
                     href="https://github.com/jackzhang2013"
                     target="_blank"
                 >
-                    <i id="github-icon" class="bi bi-github"></i>
+                    <i class="bi bi-github"></i>
                 </a>
+            </div>
+            <div id="center-right">
+                <from id="search">
+                    <i class="bi bi-search"></i>
+                    <input oninput="searchInput()" value="" placeholder="搜索" autocomplete="off"></input>
+                </from>
+                <div id="res-list" style="display: none">
+                    <div class='res'><p>键入以开始搜索</p></div>
+                </div>
             </div>
         </div>
         <div id="content">

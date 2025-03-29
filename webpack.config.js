@@ -32,7 +32,12 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
             },
             {
                 test: /\.m?js$/,
@@ -48,7 +53,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
         new CopyPlugin({
             patterns: [
                 {
@@ -82,10 +87,6 @@ module.exports = {
         }),
     ],
     optimization: {
-        minimizer: [
-            // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
-            `...`,
-            new CssMinimizerPlugin(),
-        ],
+        minimizer: [`...`, new CssMinimizerPlugin()],
     },
 };

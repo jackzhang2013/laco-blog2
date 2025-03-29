@@ -1,0 +1,15 @@
+@media print {
+    .giscus {
+        display: none;
+    }
+    #top {
+        display: none;
+    }
+    #content {
+        top: 0;
+        min-height: 100%;
+        left: 0;
+        width: 100% !important;
+        border: none;
+    }
+}
