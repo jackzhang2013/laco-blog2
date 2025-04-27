@@ -1,3 +1,6 @@
+> [!WARNING]  
+> 该分支已停止维护，请前往typescript分支查看最新进展
+
 <div align="center">
 
 # laco blog
