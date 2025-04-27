@@ -1,6 +1,5 @@
 {
     "name": "jackzhang",
     "theme": "light",
-    "auto_dark": true,
-    "post": ["洛谷P1001题解"]
+    "auto_dark": true
 }
