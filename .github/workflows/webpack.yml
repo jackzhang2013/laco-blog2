@@ -26,11 +26,3 @@ jobs:
       run: |
         pnpm install
         pnpx webpack
-
-    - name: Deploy to GitHub Pages
-      uses: crazy-max/ghaction-github-pages@v4
-      with:
-        target_branch: gh-pages
-        build_dir: dist
-      env:
-        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
