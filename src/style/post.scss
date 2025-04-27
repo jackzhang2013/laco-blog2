@@ -1,28 +1,38 @@
 @use "style";
 @use "post-print";
+
 #content {
     padding: 0 50px;
 }
+
 #head h1 {
     margin-top: 50px;
     text-align: left;
 }
+
 #head h1::after,
 #post::after {
     text-align: left;
     content: "";
     width: 100%;
     display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-bottom: 3px dashed var(--line-color);
 }
+
 #post img {
     border-radius: var(--radius);
 }
+
 #post {
     font-size: 1.2rem;
 }
+
 .giscus {
     margin-bottom: 1rem;
+}
+
+#post-name {
+    font-size: 3rem;
 }

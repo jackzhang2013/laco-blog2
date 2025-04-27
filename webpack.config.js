@@ -3,8 +3,6 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-    require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 
@@ -17,8 +15,8 @@ module.exports = {
         compress: true,
     },
     entry: {
-        index: "./src/index.js",
-        post: "./src/post.js",
+        index: "./src/index.ts",
+        post: "./src/post.ts",
     },
     output: {
         filename: "[name].js",
@@ -42,14 +40,17 @@ module.exports = {
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"],
-                    },
-                },
+                use: "babel-loader",
+            },
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: "babel-loader",
             },
         ],
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"],
     },
     plugins: [
         new CleanWebpackPlugin(),

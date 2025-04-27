@@ -1,41 +1,41 @@
 @use "top";
+
+// Use catppuccin palette
+
 * {
     box-sizing: border-box;
 }
 
 :root {
-    --border-color: #e0e0e0;
-    --main-bg-color: #eeeeee;
-    --content-bg-color: #fafafa;
-    --element-bg-color: #ffffff;
-    --text-color: #000000;
+    --main-bg-color: #eff1f5;
+    --element-bg-color: #e6e9ef;
+    --text-color: #4c4f69;
+    --subtext-color: #5c5f77;
     --disabled-color: #bdbdbd;
     --link-color: #616161;
-    --logo-color: #039be5;
+    --logo-color: #7287fd;
     --line-color: #d1d9e0;
     --shadow-color: #e0e0e0;
     --selection-color: #cceae7;
-    --hover-color: var(--element-bg-color);
     --radius: 5px;
-    --border-size: 2px;
 }
 
 .dark {
-    --border-color: #323232;
-    --main-bg-color: #121212;
-    --content-bg-color: #1c1c1c;
-    --element-bg-color: #292929;
-    --text-color: #ffffff;
+    --main-bg-color: #1e1e2e;
+    --element-bg-color: #181825;
+    --text-color: #cdd6f4;
+    --subtext-color: #bac2de;
     --disabled-color: #9e9e9e;
     --link-color: #ffffff;
-    --logo-color: #4fc3f7;
+    --logo-color: #b4befe;
     --line-color: #3d444d;
     --shadow-color: #00000000;
     --selection-color: #363636;
-    --hover-color: #2d2d2d;
 }
 
 body {
+    margin: 0;
+
     background: {
         color: var(--main-bg-color);
         attachment: fixed;
@@ -43,27 +43,31 @@ body {
     }
 }
 
-#content {
-    top: 60px;
-    position: absolute;
-    left: 20%;
-    margin-top: 0;
-    min-height: calc(100% - 60px);
-    width: 60%;
-    border: {
-        style: none solid;
-        width: var(--border-size);
-        color: var(--border-color);
+@media (min-width: 60rem) {
+    #content {
+        left: calc(50% - 30rem);
+        width: 60rem;
     }
-    background-color: var(--content-bg-color);
 }
 
-h1 {
-    font-size: 3em;
-    color: var(--text-color);
+@media (max-width: 60rem) {
+    #content {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
-p {
+#content {
+    position: absolute;
+    min-height: calc(100% - 4rem);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: var(--text-color);
 }
 

@@ -16,19 +16,8 @@
         margin-top: 5px !important;
         margin-bottom: 10px !important;
         line-height: 1;
-        .octicon {
-            top: -2px !important;
-            margin-right: 0.5rem;
-            display: inline-block;
-            position: relative;
-            overflow: visible !important;
-            vertical-align: text-bottom;
-            fill: currentColor;
-        }
     }
     border-radius: var(--radius);
-
-    -ms-border-radius: var(--radius);
 }
 
 .markdown-alert.markdown-alert-note {

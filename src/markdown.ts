@@ -4,31 +4,31 @@ import "katex/contrib/copy-tex";
 import MarkdownIt from "markdown-it";
 import katexPlugin from "@vscode/markdown-it-katex";
 import anchor from "markdown-it-anchor";
-import imageFiguresPlugin from "markdown-it-image-figures";
-import MarkdownItGitHubAlerts from "markdown-it-github-alerts";
+import { alert } from "@mdit/plugin-alert";
 import Prism from "prismjs";
-import "./style/prism-material.scss";
+import "./style/prism.scss";
 import "./style/prism-line-numbers.scss";
 import "./style/prism-toolbar.scss";
 import "prismjs/plugins/inline-color/prism-inline-color.css";
-import "./style/github-markdown.scss";
+import "./style/markdown.scss";
 import "viewerjs/dist/viewer.css";
 import "./style/github-colors-light.scss";
 import "./style/github-colors-dark-class.scss";
 import "./style/github-base.scss";
 import Viewer from "viewerjs";
+import StateBlock from "markdown-it/lib/rules_block/state_block.mjs";
 console.log("markdown.js loaded");
-function wikiLink(state, startLine) {
-    var pos = state.bMarks[startLine] + state.tShift[startLine],
+function wikiLink(state: StateBlock, startLine: number) {
+    const pos = state.bMarks[startLine] + state.tShift[startLine],
         max = state.eMarks[startLine],
         ch = state.src.charCodeAt(pos);
     if (ch !== 0x5b /*@*/ || pos >= max) {
         return false;
     }
-    let text = state.src.substring(pos, max);
+    const text = state.src.substring(pos, max);
     state.line = startLine + 1;
-    let rg = /\[\[.*\]\]/;
-    let match = text.match(rg);
+    const rg = /\[\[.*\]\]/;
+    const match = text.match(rg);
     if (match && match.length) {
         const name = state.src.slice(pos + 2, max - 2);
         const token_o = state.push("heading_open", "a", 1);
@@ -46,7 +46,7 @@ function wikiLink(state, startLine) {
     }
     return false;
 }
-export function parseMarkdown(text) {
+export function parseMarkdown(text: string) {
     //TODO: add more plugin
     //TODO: TOC
     const md = new MarkdownIt({
@@ -58,18 +58,15 @@ export function parseMarkdown(text) {
         katex,
     });
     md.use(anchor);
-    md.use(imageFiguresPlugin);
-    md.use(MarkdownItGitHubAlerts);
+    md.use(alert);
     md.block.ruler.before("paragraph", "wikiLink", wikiLink);
     return md.render(text);
 }
 
 export function solveAll() {
-    // hljs.addPlugin(new CopyButtonPlugin());
-    // hljs.highlightAll();
     Prism.highlightAll(false);
-    var imageList = document.getElementsByTagName("img");
-    for (var i = 0; i < imageList.length; i++) {
+    const imageList = document.getElementsByTagName("img");
+    for (let i = 0; i < imageList.length; i++) {
         new Viewer(imageList[i], {});
     }
 }

@@ -4,8 +4,16 @@
             "prismjs",
             {
                 "languages": ["javascript", "css", "cpp"],
-                "plugins": ["line-numbers", "show-language", "copy-to-clipboard", "toolbar", "inline-color"]
+                "plugins": [
+                    "line-numbers",
+                    "show-language",
+                    "copy-to-clipboard",
+                    "toolbar",
+                    "inline-color"
+                ]
             }
-        ]
-    ]
+        ],
+        "@babel/plugin-transform-runtime"
+    ],
+    "presets": ["@babel/preset-env", "@babel/preset-typescript"]
 }

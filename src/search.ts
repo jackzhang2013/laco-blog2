@@ -1,7 +1,7 @@
 import Fuse from "fuse.js";
-export var fuse;
-export function importDoc(postList) {
-    var documents = [];
+export let fuse: Fuse<{ id: string; title: string; body: string }>;
+export function importDoc(postList: { name: string; text: string }[]) {
+    const documents: { id: string; title: string; body: string }[] = [];
     postList.forEach((value) => {
         documents.push({
             id: value.name,
@@ -17,6 +17,6 @@ export function importDoc(postList) {
     };
     fuse = new Fuse(documents, options);
 }
-export function searchDoc(str) {
+export function searchDoc(str: string) {
     return fuse.search(str);
 }
