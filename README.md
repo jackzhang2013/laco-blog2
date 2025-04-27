@@ -1,5 +1,5 @@
 > [!WARNING]  
-> 该分支已停止维护，请前往typescript分支查看最新进展
+> 该分支已停止维护，请前往 main 分支查看最新进展
 
 <div align="center">
 
@@ -45,9 +45,9 @@ MIT License
 
 ```json
 {
-    "name": "jackzhang",
-    "theme": "light",
-    "auto_dark": false,
+  "name": "jackzhang",
+  "theme": "light",
+  "auto_dark": false
 }
 ```
 
