@@ -28,7 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm -i webpack-cli -g
+        pnpm install webpack-cli -g
         pnpm install
 
     - name: Build
