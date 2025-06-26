@@ -64,6 +64,11 @@ module.exports = {
                     toType: "dir",
                 },
                 {
+                    from: path.resolve(__dirname, "public/post"),
+                    to: path.resolve(__dirname, "dist/post"),
+                    toType: "dir",
+                },
+                {
                     from: path.resolve(__dirname, "public/posts.json"),
                     to: path.resolve(__dirname, "dist/posts.json"),
                     toType: "file",
