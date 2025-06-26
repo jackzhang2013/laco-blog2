@@ -1,0 +1,50 @@
+@use "style";
+
+// Use font "霞鹜新致宋", "霞鹜文楷"
+
+#posts {
+    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.postcard {
+    background-color: var(--element-bg-color);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 15rem;
+    width: 100%;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
+
+    p:not(:first-child) {
+        color: var(--disabled-color);
+        font-size: 1.2rem;
+        position: relative;
+    }
+
+    p:not(:first-child)::before {
+        color: var(--disabled-color);
+        position: relative;
+        content: "摘要：";
+    }
+
+    p:first-child {
+        font-family: "LXGW Neo ZhiSong", sans-serif;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    a {
+        font-family: "LXGW WenKai", sans-serif;
+        font-size: 1.2rem;
+        color: var(--logo-color);
+        text-decoration: underline;
+    }
+
+    &:hover {
+        transform: scale(102%);
+    }
+}
