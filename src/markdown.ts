@@ -4,7 +4,10 @@ import "katex/contrib/copy-tex";
 import MarkdownIt from "markdown-it";
 import katexPlugin from "@vscode/markdown-it-katex";
 import anchor from "markdown-it-anchor";
+import toc from "markdown-it-toc-done-right";
 import { alert } from "@mdit/plugin-alert";
+import { imgSize } from "@mdit/plugin-img-size";
+import { tasklist } from "@mdit/plugin-tasklist";
 import Prism from "prismjs";
 import "./style/prism.scss";
 import "./style/prism-line-numbers.scss";
@@ -47,8 +50,6 @@ function wikiLink(state: StateBlock, startLine: number) {
     return false;
 }
 export function parseMarkdown(text: string) {
-    //TODO: add more plugin
-    //TODO: TOC
     const md = new MarkdownIt({
         html: true,
         linkify: true,
@@ -57,10 +58,19 @@ export function parseMarkdown(text: string) {
     katexPlugin(md, {
         katex,
     });
-    md.use(anchor);
+    md.use(anchor, {
+        permalink: true,
+        permalinkBefore: true,
+        permalinkSymbol: "§",
+    });
+    md.use(toc, {
+        listType: "ul",
+    });
     md.use(alert);
+    md.use(imgSize);
+    md.use(tasklist);
     md.block.ruler.before("paragraph", "wikiLink", wikiLink);
-    return md.render(text);
+    return md.render("${toc}\n" + text);
 }
 
 export function solveAll() {
@@ -69,4 +79,14 @@ export function solveAll() {
     for (let i = 0; i < imageList.length; i++) {
         new Viewer(imageList[i], {});
     }
+    const hasImg = document.querySelector(".markdown-body img") !== null;
+    if (!hasImg) {
+        document
+            .getElementById("tips-card")
+            .setAttribute("style", "display: none");
+    }
+    const toc = document.getElementsByClassName("table-of-contents")[0];
+    const title = document.createElement("h3");
+    title.textContent = "目录";
+    toc.insertBefore(title, toc.firstChild);
 }

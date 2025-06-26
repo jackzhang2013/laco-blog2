@@ -1,9 +1,7 @@
 @use "style";
 @use "post-print";
 
-#content {
-    padding: 0 50px;
-}
+// Use font "纳米老宋", "霞鹜文楷"
 
 #head h1 {
     margin-top: 50px;
@@ -18,7 +16,6 @@
     display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 3px dashed var(--line-color);
 }
 
 #post img {
@@ -34,5 +31,57 @@
 }
 
 #post-name {
+    font-family: "LXGW Neo ZhiSong", sans-serif;
     font-size: 3rem;
+}
+
+#tips-card {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    border: 2px solid var(--color-warning);
+    background-color: color-mix(
+        in srgb,
+        var(--color-warning),
+        var(--main-bg-color) 80%
+    );
+
+    b {
+        font-family: "LXGW WenKai", sans-serif;
+        color: var(--color-warning);
+    }
+
+    p {
+        font-family: "LXGW WenKai", sans-serif;
+        margin: 0.5rem 0;
+    }
+}
+
+body:not(.dark) #tips-card {
+    display: none;
+}
+
+#to-top-btn.show-btn {
+    opacity: 100;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--element-bg-color);
+    border-radius: var(--radius);
+    padding: 0;
+    border: 0;
+    transition: opacity 0.5s;
+
+    i {
+        color: var(--logo-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+#to-top-btn {
+    opacity: 0;
+    transition: opacity 0.5s;
 }

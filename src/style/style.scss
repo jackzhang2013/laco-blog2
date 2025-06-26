@@ -1,4 +1,9 @@
-@use "top";
+@use "nav-bar";
+@import "https://fontsapi.zeoseven.com/292/main/result.css";
+@import "https://fontsapi.zeoseven.com/442/main/result.css";
+@import "https://fontsapi.zeoseven.com/22/main/result.css";
+
+// Use font "霞鹜文楷"，"Maple Mono NF-CN"
 
 // Use catppuccin palette
 
@@ -7,30 +12,32 @@
 }
 
 :root {
+    color-scheme: light;
+
     --main-bg-color: #eff1f5;
     --element-bg-color: #e6e9ef;
     --text-color: #4c4f69;
     --subtext-color: #5c5f77;
-    --disabled-color: #bdbdbd;
-    --link-color: #616161;
+    --disabled-color: #7c7f93;
     --logo-color: #7287fd;
-    --line-color: #d1d9e0;
-    --shadow-color: #e0e0e0;
-    --selection-color: #cceae7;
+    --line-color: #acb0be;
+    --tips-color: #ccd0da;
+    --selection-color: var(--line-color);
     --radius: 5px;
 }
 
 .dark {
+    color-scheme: dark;
+
     --main-bg-color: #1e1e2e;
     --element-bg-color: #181825;
     --text-color: #cdd6f4;
     --subtext-color: #bac2de;
-    --disabled-color: #9e9e9e;
-    --link-color: #ffffff;
+    --disabled-color: #9399b2;
     --logo-color: #b4befe;
-    --line-color: #3d444d;
-    --shadow-color: #00000000;
-    --selection-color: #363636;
+    --line-color: #585b70;
+    --tips-color: #313244;
+    --selection-color: var(--line-color);
 }
 
 body {
@@ -43,14 +50,14 @@ body {
     }
 }
 
-@media (min-width: 60rem) {
+@media (width >= 60rem) {
     #content {
-        left: calc(50% - 30rem);
-        width: 60rem;
+        left: calc(50% - 35rem);
+        width: 70rem;
     }
 }
 
-@media (max-width: 60rem) {
+@media (width < 60rem) {
     #content {
         margin-left: 0;
         width: 100%;
@@ -58,17 +65,37 @@ body {
 }
 
 #content {
-    position: absolute;
-    min-height: calc(100% - 4rem);
+    padding: 0 10rem;
+    position: relative;
 }
 
 p,
+b,
 h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+li,
+th,
+td {
+    font-family: "LXGW WenKai", sans-serif;
     color: var(--text-color);
+}
+
+pre,
+code {
+    font-family: "Maple Mono NF CN", monospace;
+}
+
+h6 {
+    font-family: "LXGW WenKai", sans-serif;
+    color: var(--subtext-color);
+}
+
+a {
+    font-family: "LXGW WenKai", sans-serif;
+    color: var(--logo-color);
 }
 
 ::selection {

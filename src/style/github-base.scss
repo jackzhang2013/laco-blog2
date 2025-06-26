@@ -1,61 +1,52 @@
+@mixin set-color($color) {
+    border-color: $color;
+    background-color: color-mix(in srgb, $color, var(--main-bg-color) 80%);
+
+    .markdown-alert-title {
+        color: $color;
+    }
+}
+
 .markdown-alert {
     padding: 0.5rem 1rem;
-    margin: 16px 0px;
+    margin: 16px 0;
     color: inherit;
     border: 2px solid #888;
+
     & > :first-child {
         margin-top: 0;
     }
+
     & > :last-child {
         margin-bottom: 5px !important;
     }
+
     .markdown-alert-title {
-        // display: flex;
         font-weight: 500;
-        // align-items: center;
         margin-top: 5px !important;
         margin-bottom: 10px !important;
         line-height: 1;
     }
+
     border-radius: var(--radius);
 }
 
 .markdown-alert.markdown-alert-note {
-    border-color: var(--color-note);
-    background-color: color-mix(
-        in srgb,
-        var(--color-note),
-        var(--content-bg-color) 80%
-    );
-    .markdown-alert-title {
-        color: var(--color-note);
-    }
+    @include set-color(var(--color-note));
 }
 
 .markdown-alert.markdown-alert-important {
-    border-color: var(--color-important);
-    .markdown-alert-title {
-        color: var(--color-important);
-    }
+    @include set-color(var(--color-important));
 }
 
 .markdown-alert.markdown-alert-warning {
-    border-color: var(--color-warning);
-    .markdown-alert-title {
-        color: var(--color-warning);
-    }
+    @include set-color(var(--color-warning));
 }
 
 .markdown-alert.markdown-alert-tip {
-    border-color: var(--color-tip);
-    .markdown-alert-title {
-        color: var(--color-tip);
-    }
+    @include set-color(var(--color-tip));
 }
 
 .markdown-alert.markdown-alert-caution {
-    border-color: var(--color-caution);
-    .markdown-alert-title {
-        color: var(--color-caution);
-    }
+    @include set-color(var(--color-caution));
 }

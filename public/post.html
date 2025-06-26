@@ -2,6 +2,7 @@
 <html lang="zh">
     <head>
         <meta charset="utf-8" />
+        <meta name="referrer" content="no-referrer" />
         <link
             rel="shortcut icon"
             href="./asset/favicon.ico"
@@ -12,33 +13,38 @@
     </head>
 
     <body class="light">
-        <div id="top">
+        <nav id="nav-bar">
             <div class="left">
                 <div id="logo">
                     <a href="index.html" id="logo-text" target="_blank"></a>
                 </div>
                 <div id="link">
                     <a href="index.html" id="link1" target="_blank">首页</a>
-                    <a href="index.html" id="link2" target="_blank">文章</a>
+                    <a href="post-list.html" id="link2" target="_blank">文章</a>
                 </div>
             </div>
             <div class="right">
                 <i id="moon-sun" class="bi bi-moon-stars"></i>
-                <a
-                    id="github"
-                    href="https://github.com/jackzhang2013"
-                    target="_blank"
-                >
-                    <i class="bi bi-github"></i>
-                </a>
             </div>
-        </div>
+        </nav>
         <div id="content">
             <div id="head">
                 <h1 id="post-name"></h1>
+                <div id="tips-card">
+                    <b>Warning</b>
+                    <p>
+                        图片在暗色模式呈现的效果可能不太理想，切换到亮色模式即可避免此问题
+                    </p>
+                </div>
             </div>
-            <article id="post" class="markdown-body line-numbers"></article>
+            <article
+                id="post"
+                class="markdown-body line-numbers heti"
+            ></article>
             <div class="giscus"></div>
+            <button id="to-top-btn">
+                <i class="bi bi-caret-up-fill" />
+            </button>
         </div>
     </body>
 </html>

@@ -17,6 +17,7 @@ module.exports = {
     entry: {
         index: "./src/index.ts",
         post: "./src/post.ts",
+        posts: "./src/post-list.ts",
     },
     output: {
         filename: "[name].js",
@@ -62,6 +63,11 @@ module.exports = {
                     to: path.resolve(__dirname, "dist/asset"),
                     toType: "dir",
                 },
+                {
+                    from: path.resolve(__dirname, "public/posts.json"),
+                    to: path.resolve(__dirname, "dist/posts.json"),
+                    toType: "file",
+                },
             ],
             options: {
                 concurrency: 100,
@@ -77,6 +83,12 @@ module.exports = {
             template: "./public/post.html",
             filename: "post.html",
             chunks: ["post"],
+            minify: true,
+        }),
+        new HtmlWebPackPlugin({
+            template: "./public/post-list.html",
+            filename: "post-list.html",
+            chunks: ["posts"],
             minify: true,
         }),
         new CompressionPlugin({

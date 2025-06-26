@@ -1,22 +1,13 @@
-import { searchDoc } from "./search";
+// import { searchDoc } from "./search";
 import "normalize.css";
+import axios from "axios";
 
 console.log("base.js loaded");
 
 let theme: string;
 
-export function intitheme(data: { auto_dark: boolean; theme: string }) {
-    const auto = data.auto_dark;
+export function intitheme() {
     const storage = window.localStorage;
-    theme = data.theme;
-    if (auto) {
-        const is_dark = window.matchMedia("(prefers-color-scheme: dark)");
-        if (is_dark) {
-            theme = "dark";
-        } else {
-            theme = "light";
-        }
-    }
     if (storage.theme) {
         theme = storage.theme;
     }
@@ -92,35 +83,53 @@ function switchTheme() {
     settheme(theme);
 }
 
-function searchInput() {
-    const inputNode = document.querySelectorAll("input")[0];
-    const listNode = document.getElementById("res-list");
-    listNode.innerHTML = "";
-    if (inputNode.value == "") {
-        listNode.innerHTML = "<div class='res'><p>键入以开始搜索</p></div>";
-        return;
-    }
-    const res = searchDoc(inputNode.value);
-    console.log(res);
-    res.forEach((value: { item: { id: string; body: string } }) => {
-        const template = `<a
-    href="post.html?name=${value.item.id}"
-    target="_blank"
->
-    <div class="res">
-    <b>${value.item.id}</b>
-    <p>${value.item.body}</p>
-    </div>
-</a>`;
-        listNode.innerHTML += template;
-    });
-    console.log(res.length);
-    if (res.length === 0) {
-        listNode.innerHTML =
-            "<div class='res'><p>没有找到符合条件的结果</p></div>";
-    }
-}
+// function searchInput() {
+//     const inputNode = document.querySelectorAll("input")[0];
+//     const listNode = document.getElementById("res-list");
+//     listNode.innerHTML = "";
+//     if (inputNode.value == "") {
+//         listNode.innerHTML = "<div class='res'><p>键入以开始搜索</p></div>";
+//         return;
+//     }
+//     const res = searchDoc(inputNode.value);
+//     console.log(res);
+//     res.forEach((value: { item: { id: string; body: string } }) => {
+//         const template = `<a
+//     href="post.html?name=${value.item.id}"
+//     target="_blank"
+// >
+//     <div class="res">
+//     <b>${value.item.id}</b>
+//     <p>${value.item.body}</p>
+//     </div>
+// </a>`;
+//         listNode.innerHTML += template;
+//     });
+//     console.log(res.length);
+//     if (res.length === 0) {
+//         listNode.innerHTML =
+//             "<div class='res'><p>没有找到符合条件的结果</p></div>";
+//     }
+// }
 
 document.getElementById("moon-sun").addEventListener("click", () => {
     switchTheme();
 });
+
+export function postListBuild() {
+    axios.get("./posts.json").then(function (response) {
+        const postlist = response.data;
+        postlist.forEach((element: { name: string; text: string }) => {
+            const template = `<div class="postcard">
+    <p>${element.name}</p>
+    <p>${element.text.slice(0, 50) + " ... "}</p>
+    <a href="post.html?name=${element.name}" target="_blank">>> 阅读全文</a>
+</div>`;
+            document.getElementById("posts").innerHTML += template;
+        });
+    });
+}
+
+const name = "jackzhang";
+document.getElementById("title").innerText = name + " 的博客";
+document.getElementById("logo-text").innerText = name + "'s blog";

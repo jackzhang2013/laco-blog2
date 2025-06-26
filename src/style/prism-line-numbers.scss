@@ -17,7 +17,7 @@ pre[class*="language-"].line-numbers > code {
     left: -3.8em;
     width: 3em;
     letter-spacing: -1px;
-    border-right: 1px solid #aabfc950;
+    border-right: 1px solid var(--line-color);
     user-select: none;
 }
 
@@ -26,19 +26,10 @@ pre[class*="language-"].line-numbers > code {
     counter-increment: linenumber;
 }
 
-.line-numbers-rows > span:before {
+.line-numbers-rows > span::before {
     content: counter(linenumber);
-    color: #aabfc9;
+    color: var(--line-color);
     display: block;
     padding-right: 0.8em;
     text-align: right;
-}
-
-.dark {
-    .line-numbers-rows > span:before {
-        color: #616161;
-    }
-    .line-numbers .line-numbers-rows {
-        border-right: 1px solid #61616150;
-    }
 }

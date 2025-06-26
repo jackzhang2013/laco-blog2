@@ -4,19 +4,16 @@ import "./base";
 import { intitheme } from "./base";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./style/post.scss";
-import { importDoc } from "./search";
 
 console.log("post.js loaded");
 
-axios.get("./config.json").then(function (response) {
-    const data = response.data;
-    intitheme(data);
-    const data_name = data.name;
+window.onload = () => {
+    intitheme();
     const search_params = new URLSearchParams(window.location.search);
     const post_name = search_params.get("name");
+    const title = document.getElementById("title").innerText;
 
-    document.getElementById("logo-text").innerText = data_name + "'s blog";
-    document.getElementById("title").innerText = post_name;
+    document.getElementById("title").innerText = post_name + " | " + title;
     document.getElementById("post-name").innerText = post_name;
 
     axios.get(`./post/${post_name}.md`).then(function (response) {
@@ -24,8 +21,27 @@ axios.get("./config.json").then(function (response) {
         document.getElementById("post").innerHTML = parseMarkdown(post);
         solveAll();
     });
-});
-axios.get("./posts.json").then(function (response) {
-    const postlist = response.data;
-    importDoc(postlist);
-});
+
+    const scrollToTopBtn = document.getElementById("to-top-btn");
+    const rootElement = document.documentElement;
+
+    const scrollToTop = () => {
+        rootElement.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+
+    function handleScroll() {
+        const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+        if (rootElement.scrollTop / scrollTotal > 0.2) {
+            scrollToTopBtn.classList.add("show-btn");
+        } else {
+            scrollToTopBtn.classList.remove("show-btn");
+        }
+    }
+
+    document.addEventListener("scroll", handleScroll);
+};
