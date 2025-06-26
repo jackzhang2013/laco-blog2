@@ -1,4 +1,4 @@
-#top {
+nav {
     // position: fixed;
     z-index: 100;
     top: 0;
@@ -6,7 +6,7 @@
     height: 4rem;
     width: 100%;
     margin-top: 1rem;
-    padding: 1rem calc(50% - 30rem);
+    padding: 1rem calc(50% - 35rem);
 
     .left {
         width: 50%;
@@ -25,7 +25,7 @@
         height: 100%;
 
         a {
-            font-family: monospace;
+            font-family: "Maple Mono NF CN", monospace;
             font-weight: bold;
             text-decoration: none;
             color: var(--logo-color);
@@ -38,6 +38,7 @@
         position: relative;
 
         a {
+            font-family: "Maple Mono NF CN", monospace;
             text-decoration: none;
             margin-left: 2em;
             color: var(--text-color);
@@ -91,10 +92,6 @@
         margin-top: 3em;
         background-color: var(--content-bg-color);
 
-        a:not(:last-child) .res {
-            border-bottom: 2px solid var(--border-color);
-        }
-
         .res {
             padding: 0.5em 2em;
 
@@ -120,29 +117,21 @@
             }
         }
 
+        a:not(:last-child) .res {
+            border-bottom: 2px solid var(--border-color);
+        }
+
         border-radius: var(--radius);
     }
 
-    #github {
-        float: left;
-        position: relative;
-        height: 30px;
-
-        i {
-            color: var(--text-color);
-            margin-top: 0;
-            margin-right: 0;
-            font-size: 2em;
-        }
-    }
-
     #moon-sun {
+        font-family: unset;
         cursor: pointer;
         float: left;
         position: relative;
         color: var(--text-color);
         margin-right: 1rem;
-        font-size: 2em;
+        font-size: 2rem;
         padding: 0;
     }
 }
