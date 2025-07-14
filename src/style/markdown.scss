@@ -1,3 +1,6 @@
+@use "github-base";
+@use "prism";
+
 .markdown-body {
     p,
     b,
@@ -81,22 +84,6 @@
 
         &:hover {
             color: var(--logo-color);
-        }
-    }
-
-    .table-of-contents {
-        overflow: hidden;
-        background-color: var(--element-bg-color);
-        padding: 0 1em;
-        border-radius: var(--radius);
-
-        ul {
-            margin-inline-start: 1em;
-            padding: 0;
-        }
-
-        a {
-            text-decoration: none;
         }
     }
 

@@ -1,6 +1,6 @@
 @use "style";
 
-// Use font "霞鹜新致宋", "霞鹜文楷"
+// Use font "思源宋体", "霞鹜文楷"
 
 #posts {
     margin-top: 1rem;
@@ -32,9 +32,10 @@
     }
 
     p:first-child {
-        font-family: "LXGW Neo ZhiSong", sans-serif;
+        font-family: "Noto Serif CJK", sans-serif;
         font-size: 2rem;
         margin: 0;
+        font-weight: bold;
     }
 
     a {

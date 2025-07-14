@@ -5,6 +5,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const BundleAnalyzerPlugin =
+    require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
     mode: "development",
@@ -13,11 +15,12 @@ module.exports = {
             directory: path.join(__dirname, "public"),
         },
         compress: true,
+        open: false,
     },
     entry: {
         index: "./src/index.ts",
         post: "./src/post.ts",
-        posts: "./src/post-list.ts",
+        "post-list": "./src/post-list.ts",
     },
     output: {
         filename: "[name].js",
@@ -55,17 +58,14 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false, // 不自动打开浏览器
+        }),
         new CopyPlugin({
             patterns: [
                 {
                     from: path.resolve(__dirname, "public/asset"),
                     to: path.resolve(__dirname, "dist/asset"),
-                    toType: "dir",
-                },
-                {
-                    from: path.resolve(__dirname, "public/post"),
-                    to: path.resolve(__dirname, "dist/post"),
                     toType: "dir",
                 },
                 {

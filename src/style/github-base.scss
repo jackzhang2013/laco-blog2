@@ -1,3 +1,5 @@
+@use "catppuccin";
+
 @mixin set-color($color) {
     border-color: $color;
     background-color: color-mix(in srgb, $color, var(--main-bg-color) 80%);
@@ -32,21 +34,43 @@
 }
 
 .markdown-alert.markdown-alert-note {
-    @include set-color(var(--color-note));
+    @include set-color(catppuccin.$latte-blue);
 }
 
 .markdown-alert.markdown-alert-important {
-    @include set-color(var(--color-important));
+    @include set-color(catppuccin.$latte-mauve);
 }
 
 .markdown-alert.markdown-alert-warning {
-    @include set-color(var(--color-warning));
+    @include set-color(catppuccin.$latte-peach);
 }
 
 .markdown-alert.markdown-alert-tip {
-    @include set-color(var(--color-tip));
+    @include set-color(catppuccin.$latte-green);
 }
 
 .markdown-alert.markdown-alert-caution {
-    @include set-color(var(--color-caution));
+    @include set-color(catppuccin.$latte-red);
+}
+
+.dark {
+    .markdown-alert.markdown-alert-note {
+        @include set-color(catppuccin.$mocha-blue);
+    }
+
+    .markdown-alert.markdown-alert-important {
+        @include set-color(catppuccin.$mocha-mauve);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+        @include set-color(catppuccin.$mocha-peach);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+        @include set-color(catppuccin.$mocha-green);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+        @include set-color(catppuccin.$mocha-red);
+    }
 }

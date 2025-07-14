@@ -1,7 +1,7 @@
 @use "nav-bar";
 @import "https://fontsapi.zeoseven.com/292/main/result.css";
 @import "https://fontsapi.zeoseven.com/442/main/result.css";
-@import "https://fontsapi.zeoseven.com/22/main/result.css";
+@import "https://fontsapi.zeoseven.com/285/main/result.css";
 
 // Use font "霞鹜文楷"，"Maple Mono NF-CN"
 
@@ -12,8 +12,6 @@
 }
 
 :root {
-    color-scheme: light;
-
     --main-bg-color: #eff1f5;
     --element-bg-color: #e6e9ef;
     --text-color: #4c4f69;
@@ -27,8 +25,6 @@
 }
 
 .dark {
-    color-scheme: dark;
-
     --main-bg-color: #1e1e2e;
     --element-bg-color: #181825;
     --text-color: #cdd6f4;
@@ -76,6 +72,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 li,
 th,
 td {

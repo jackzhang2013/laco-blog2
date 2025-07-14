@@ -3,7 +3,11 @@
         display: none;
     }
 
-    #top {
+    #nav-bar {
+        display: none;
+    }
+
+    .table-of-contents {
         display: none;
     }
 
@@ -13,5 +17,15 @@
         left: 0;
         width: 100% !important;
         border: none;
+        padding: 0 2rem;
+    }
+
+    #post-mate,
+    #post-tags {
+        display: none;
+    }
+
+    .header-anchor {
+        display: none;
     }
 }

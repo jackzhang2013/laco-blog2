@@ -37,16 +37,23 @@
         float: left;
         position: relative;
 
+        li {
+            display: inline-block;
+            list-style: none;
+        }
+
         a {
-            font-family: "LXGW Neo ZhiSong", sans-serif;
+            font-family: "Noto Serif CJK", sans-serif;
             text-decoration: none;
             margin-left: 2em;
             color: var(--text-color);
             font-size: 1.5rem;
+            font-weight: bold;
         }
 
         margin-top: 0;
         margin-right: 0;
+        padding: 0;
         height: 100%;
     }
 

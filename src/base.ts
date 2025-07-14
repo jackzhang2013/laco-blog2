@@ -1,6 +1,7 @@
 // import { searchDoc } from "./search";
 import "normalize.css";
 import axios from "axios";
+import "./style/catppuccin.scss";
 
 console.log("base.js loaded");
 
@@ -119,14 +120,16 @@ document.getElementById("moon-sun").addEventListener("click", () => {
 export function postListBuild() {
     axios.get("./posts.json").then(function (response) {
         const postlist = response.data;
-        postlist.forEach((element: { name: string; text: string }) => {
-            const template = `<div class="postcard">
-    <p>${element.name}</p>
-    <p>${element.text.slice(0, 50) + " ... "}</p>
+        postlist.forEach(
+            (element: { name: string; digest: string; title: string }) => {
+                const template = `<div class="postcard">
+    <p>${element.title}</p>
+    <p>${element.digest}</p>
     <a href="post.html?name=${element.name}" target="_blank">>> 阅读全文</a>
 </div>`;
-            document.getElementById("posts").innerHTML += template;
-        });
+                document.getElementById("posts").innerHTML += template;
+            },
+        );
     });
 }
 

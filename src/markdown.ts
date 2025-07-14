@@ -9,17 +9,12 @@ import { alert } from "@mdit/plugin-alert";
 import { imgSize } from "@mdit/plugin-img-size";
 import { tasklist } from "@mdit/plugin-tasklist";
 import Prism from "prismjs";
-import "./style/prism.scss";
-import "./style/prism-line-numbers.scss";
-import "./style/prism-toolbar.scss";
 import "prismjs/plugins/inline-color/prism-inline-color.css";
 import "./style/markdown.scss";
 import "viewerjs/dist/viewer.css";
-import "./style/github-colors-light.scss";
-import "./style/github-colors-dark-class.scss";
-import "./style/github-base.scss";
 import Viewer from "viewerjs";
 import StateBlock from "markdown-it/lib/rules_block/state_block.mjs";
+
 console.log("markdown.js loaded");
 function wikiLink(state: StateBlock, startLine: number) {
     const pos = state.bMarks[startLine] + state.tShift[startLine],
@@ -80,10 +75,13 @@ export function solveAll() {
         new Viewer(imageList[i], {});
     }
     const hasImg = document.querySelector(".markdown-body img") !== null;
-    if (!hasImg) {
-        document
-            .getElementById("tips-card")
-            .setAttribute("style", "display: none");
+    if (hasImg) {
+        document.getElementById("head").innerHTML += `<div id="tips-card">
+    <b>Warning</b>
+    <p>
+        图片在暗色模式呈现的效果可能不太理想，切换到亮色模式即可避免此问题
+    </p>
+</div>`;
     }
     const toc = document.getElementsByClassName("table-of-contents")[0];
     const title = document.createElement("h3");

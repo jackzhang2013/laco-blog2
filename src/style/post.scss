@@ -31,8 +31,30 @@
 }
 
 #post-name {
-    font-family: "LXGW Neo ZhiSong", sans-serif;
+    font-family: "Noto Serif CJK", sans-serif;
     font-size: 3rem;
+}
+
+#post-mate,
+#post-tags {
+    font-family: "LXGW WenKai", sans-serif;
+    color: var(--disabled-color);
+
+    span + span {
+        margin-left: 1rem;
+    }
+
+    i + span {
+        margin-left: 0.5rem;
+    }
+}
+
+#post-mate {
+    margin-bottom: 0.8em;
+}
+
+#post-tags {
+    margin-bottom: 2rem;
 }
 
 #tips-card {
@@ -64,8 +86,8 @@ body:not(.dark) #tips-card {
 #to-top-btn.show-btn {
     opacity: 100;
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 3rem;
+    right: 3rem;
     height: 3rem;
     width: 3rem;
     background-color: var(--element-bg-color);
@@ -84,4 +106,21 @@ body:not(.dark) #tips-card {
 #to-top-btn {
     opacity: 0;
     transition: opacity 0.5s;
+}
+
+.table-of-contents {
+    overflow: hidden;
+    background-color: var(--element-bg-color);
+    padding: 0 1em;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+
+    ul {
+        margin-inline-start: 1em;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
 }
