@@ -5,8 +5,6 @@ const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
-const BundleAnalyzerPlugin =
-    require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
     mode: "development",
@@ -58,9 +56,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false, // 不自动打开浏览器
-        }),
         new CopyPlugin({
             patterns: [
                 {
@@ -106,5 +101,12 @@ module.exports = {
     ],
     optimization: {
         minimizer: [`...`, new CssMinimizerPlugin()],
+        splitChunks: {
+            chunks: "all",
+
+            // 生成 chunk 的最小体积（以 bytes 为单位）。
+            // 因为演示的模块比较小，需要设置这个。
+            minSize: 0,
+        },
     },
 };

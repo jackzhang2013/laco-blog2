@@ -4,7 +4,8 @@
     "description": "laco-blog 2.0",
     "main": "index.js",
     "scripts": {
-        "build": "webpack",
+        "prebuild": "node init.js",
+        "build": "webpack --mode=production",
         "start": "webpack-dev-server --open --progress",
         "eslint": "eslint --ext .js,.vue src --fix"
     },
